@@ -1,6 +1,6 @@
 # interview_question
 
-## 1
+## 第一题
 
 ### 1.1 解答
 ```python
@@ -34,7 +34,7 @@ with open('log.txt', 'r', encoding = 'utf-8') as f:
 print(round(success_num/day_num,2))
 ```
 
-## 2
+## 第二题
 
 ### 解答
 ```sql
@@ -48,3 +48,9 @@ from (
   group by user_id having count(user_id)>=1000 and count(user_id)<2000
 ) t
 ```
+
+## 第三题
+
+### 解答
+
+![](https://qn.fivedata.cn/国际象棋比赛-数据模型[数据模型]-2022719113635.png)
