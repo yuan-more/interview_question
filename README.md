@@ -54,3 +54,56 @@ from (
 ### 解答
 
 ![](https://qn.fivedata.cn/国际象棋比赛-数据模型[数据模型]-2022719113635.png)
+
+DDL 语句：
+
+```sql
+DROP TABLE IF EXISTS players;
+CREATE TABLE players(
+    player_id VARCHAR(32) NOT NULL   COMMENT '棋手id' ,
+    player_name VARCHAR(255)    COMMENT '棋手名称' ,
+    club_id VARCHAR(32)    COMMENT '俱乐部id' ,
+    rank INT    COMMENT '排名' ,
+    join_date DATETIME    COMMENT '加入时间' ,
+    quit_date DATETIME    COMMENT '更新时间' ,
+    PRIMARY KEY (player_id)
+)  COMMENT = '棋手表';
+
+DROP TABLE IF EXISTS clubs;
+CREATE TABLE clubs(
+    club_id VARCHAR(32) NOT NULL   COMMENT '俱乐部id' ,
+    club_name VARCHAR(255)    COMMENT '俱乐部名称' ,
+    PRIMARY KEY (club_id)
+)  COMMENT = '俱乐部表';
+
+DROP TABLE IF EXISTS tournaments;
+CREATE TABLE tournaments(
+    tournament_id VARCHAR(32) NOT NULL   COMMENT '锦标赛id' ,
+    tournament_name VARCHAR(255)    COMMENT '锦标赛名称' ,
+    start_date DATETIME    COMMENT '开始日期' ,
+    finish_date DATETIME    COMMENT '结束日期' ,
+    club_id VARCHAR(32)    COMMENT '俱乐部id' ,
+    PRIMARY KEY (tournament_id)
+)  COMMENT = '锦标赛表';
+
+DROP TABLE IF EXISTS matches;
+CREATE TABLE matches(
+    matches_id VARCHAR(32) NOT NULL   COMMENT '比赛id' ,
+    matches_name VARCHAR(255)    COMMENT '比赛名称' ,
+    player_id VARCHAR(32)    COMMENT '棋手id' ,
+    is_winner INT    COMMENT '是否获胜' ,
+    tournament_id VARCHAR(32)    COMMENT '锦标赛id' ,
+    match_date DATETIME    COMMENT '比赛日期' ,
+    match_session VARCHAR(32)    COMMENT '比赛场次' ,
+    PRIMARY KEY (matches_id)
+)  COMMENT = '比赛表';
+
+DROP TABLE IF EXISTS sponsors;
+CREATE TABLE sponsors(
+    sponsor_id VARCHAR(32) NOT NULL   COMMENT '赞助商id' ,
+    sponsor_name VARCHAR(255)    COMMENT '赞助商名称' ,
+    tournament_id VARCHAR(32)    COMMENT '锦标赛id' ,
+    PRIMARY KEY (sponsor_id)
+)  COMMENT = '赞助商表';
+
+```
